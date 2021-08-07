@@ -1,0 +1,11 @@
+# 文件系统
+.DS_Store
+
+# 编译器
+.idea/**
+
+# 目标文件夹
+target/*
+
+# 编译后程序 Windows
+**.exe

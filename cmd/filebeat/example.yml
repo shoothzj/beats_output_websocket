@@ -1,0 +1,28 @@
+filebeat.config.inputs:
+  enabled: true
+  path: /Users/akka/go/src/beats_output_websocket/cmd/filebeat/inputs/*.yml
+  reload.enabled: true
+  reload.period: 10s
+
+processors:
+  - add_host_metadata: ~
+
+output.websocket:
+  # worker
+  # 用于工作的websocket客户端数量
+  workers: 1
+  # 日志批量的最大大小
+  batch_size: 1
+  # 重试的最大次数，0代表不重试
+  retry_limit: 1
+  # conn
+  # ws/wss
+  schema: "ws"
+  # websocket连接地址
+  addr: "localhost:8080"
+  # websocket路径
+  path: "/echo"
+  # websocket心跳间隔，用于保活
+  ping_interval: 30
+  # logic
+  max_len: 1024
